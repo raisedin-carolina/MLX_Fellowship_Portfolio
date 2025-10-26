@@ -21,14 +21,13 @@ The process (which we studied in-depth) generally involves:
 
 The entire PPO pipeline we implemented is visualized in this diagram from our workshop materials, which shows how the **Policy Model**, **Reward Model**, **Value Model**, and **SFT Model** all interact.
 
-*(**Action for you:** Add the diagram here! You can screenshot the `image_4a216c.jpg` file, add it to your project folder (maybe in an `img/` directory), and then link it here like this:)*
+<img width="1066" height="563" alt="image" src="https://github.com/user-attachments/assets/37f0390e-cee4-4ac7-be8a-96493251c60d" />
 
-![PPO Pipeline Diagram](img/ppo-pipeline.png)
 *(Diagram based on Week 6 Workshop Slides)*
 
 This pipeline involves:
-* [cite_start]**Calculating the Reward:** Combining the score from the **Reward Model** with a **KL penalty** to keep the policy from "over-optimizing" and diverging too far from the original SFT model[cite: 192, 269].
-* [cite_start]**Calculating Advantage:** Using Generalized Advantage Estimation (GAE) [cite: 204, 205] to determine if an `action` (a generated token) was better or worse than the `value` (the expected reward) for a given `state`.
-* [cite_start]**The PPO-Clip Loss:** This is the magic of PPO[cite: 214]. [cite_start]It "clips" the objective function [cite: 267, 338] to prevent the policy from changing too rapidly in a single update, which is what gives PPO its stability.
+* **Calculating the Reward:** Combining the score from the **Reward Model** with a **KL penalty** to keep the policy from "over-optimizing" and diverging too far from the original SFT model.
+* **Calculating Advantage:** Using Generalized Advantage Estimation (GAE) to determine if an `action` (a generated token) was better or worse than the `value` (the expected reward) for a given `state`.
+* **The PPO-Clip Loss:** This is the magic of PPO. It "clips" the objective function to prevent the policy from changing too rapidly in a single update, which is what gives PPO its stability.
 
 This project was a challenging but incredibly rewarding look under the hood of state-of-the-art AI.
